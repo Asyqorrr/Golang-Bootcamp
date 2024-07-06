@@ -3,24 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	a := 10
 
-	fmt.Println("before pointer: ")
-	fmt.Println(a)
+	ages := map[string]int{
+		"Alice": 30,
+		"Bob":   25,
+		"Eve":   28,
+	}
 
-	b := &a
+	ages["Alice"]++
 
-	
-	fmt.Println("printing b that hold adrress 'a' as value")
-	fmt.Println(b)
-	
-	
-	fmt.Println("printing b that refers to 'a' based on value address")
-	fmt.Println(*b)
-	
-	*b = 2
-
-	fmt.Println(a)
-	fmt.Println(&a)
-
+	fmt.Println(ages)
 }
