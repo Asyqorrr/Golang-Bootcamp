@@ -17,7 +17,8 @@ type PermanentInterface interface {
 }
 
 // constructor
-func NewPermanent(fullName string,
+func NewPermanent(
+	fullName string,
 	dateOfBirth time.Time,
 	salary float64,
 	insurance float64) *Permanent {
@@ -34,3 +35,4 @@ func (permanent *Permanent) SetInsurance(insurance float64){
 func (permanent *Permanent) Info() string {
 	return fmt.Sprint("%v, Insurance : [%.2f]", permanent.Employee, permanent.insurance)
 }
+

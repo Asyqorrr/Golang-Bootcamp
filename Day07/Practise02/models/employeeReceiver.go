@@ -36,3 +36,7 @@ func (emp *Employee) ToString() string {
 	return fmt.Sprintf("Employee : [%d,%s,%s,%.2f,%s]", emp.empId, emp.fullName,
 		emp.dateOfBirth, emp.salary, emp.status)
 }
+
+func (emp *Employee) GetName() string {
+	return emp.fullName
+}

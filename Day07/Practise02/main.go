@@ -25,6 +25,4 @@ func main() {
 		fmt.Println(v.ToString())
 		fmt.Println("")
 	}
-
-	fmt.Println(contract1.Info())
 }
