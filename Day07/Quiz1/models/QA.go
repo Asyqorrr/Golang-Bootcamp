@@ -23,13 +23,13 @@ func NewQA(
 	salary float64,
 	tunjanganQA float64) *QAs{
 
-		return &QAs{*NewEmployee(
-			firstName,
-			lastName,
-			joinDate,
-			QA,
-			salary), 
-			tunjanganQA}
+		return &QAs{
+			Employee:*NewEmployee(firstName,
+									lastName,
+									joinDate,
+									QA,
+									salary), 
+			tunjanganQA: tunjanganQA}
 }
 
 func (qa *QAs) SetTunjanganQA(tunjanganQA float64){
@@ -38,4 +38,8 @@ func (qa *QAs) SetTunjanganQA(tunjanganQA float64){
 
 func (qa *QAs) GetTotalIncome()float64{
 	return qa.salary + qa.tunjanganQA
+}
+
+func (qa *QAs) GetProfession()string {
+	return "QA"
 }

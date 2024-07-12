@@ -22,13 +22,13 @@ func NewSales(
 	salary float64,
 	tunjanganSales float64) *Saless{
 
-		return &Saless{*NewEmployee(
-			firstName,
-			lastName,
-			joinDate,
-			Sales,
-			salary), 
-			tunjanganSales}
+		return &Saless{
+			Employee:*NewEmployee(firstName,
+									lastName,
+									joinDate,
+									Sales,
+									salary), 
+			tunjanganSales:tunjanganSales}
 }
 
 func (sales *Saless) SetTunjanganSales(tunjanganSales float64){

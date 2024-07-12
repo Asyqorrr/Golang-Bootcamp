@@ -56,9 +56,9 @@ func (emp *Employee) GetName()string{
 	return fmt.Sprintf("%s %s", emp.firstName, emp.lastName)
 }
 
-func (emp *Employee) GetProfession() string {
-	return string(emp.role)
-}
+// func (emp *Employee) GetProfession() string {
+// 	return string(emp.role)
+// }
 
 
 
