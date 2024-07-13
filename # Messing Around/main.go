@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
+import "fmt"
 
 // Define a base struct
 type Address struct {
@@ -56,11 +52,12 @@ func main() {
     // Use the constructor to create a new instance of Employee
     // name := []string {"Halimawan", "Merkava", "Marika", "Radahn", "Daenarys", "Stark", "Uzumaki"}
     
-        // Seed the random number generator
-        rand.Seed(time.Now().UnixNano())
-    
-        for i := 0; i < 10; i++ {
-            fmt.Println(rand.Intn(100)) // Generates a random number between 0 and 99
-        }
-    
+    a := 1
+    b := 0
+
+    if a < 3 {
+        b = 3
+    }
+
+    fmt.Println(b)
 }

@@ -8,11 +8,14 @@ import (
 )
 
 func main() {
-	employees := GenerateEmployees(100)
+	// employees := GenerateEmployees(100)
 	employees2 := GenerateEmployeesWithChannel(100)
 
-	ShowAllEmployee(employees)
-	ShowAllEmployee(employees2)
+	// ShowAllEmployee(employees)
+	// ShowAllEmployee(employees2)
+
+	fmt.Printf("Semua total gaji employee = %.2f",EmployeeTotalSalaries(employees2))
+	fmt.Printf("\nSemua total gaji employee = %.2f",EmployeeTotalSalaries(employees2))
 }
 
 func SalaryRandomizer()float64{
@@ -103,4 +106,35 @@ func GenerateEmployees(empCount int)[]models.ChildInterface{
 	}
 
 	return employees
+}
+
+
+func EmployeeTotalSalaries(employee []models.ChildInterface)float64{
+	//Menghitung total salary dari semua employee
+	totalSalary := 0.0
+	for _, employee := range employee {
+		totalSalary += employee.GetTotalSalary()
+		}
+
+	//Mengembalikan total salary
+	return totalSalary
+}
+
+func EmployeeTotalSalariesWithChannel(employee []models.ChildInterface)float64{
+	//Menghitung total salary dari semua employee
+	totalSalary := 0.0
+	//Membuat channel untuk mengirimkan total salary
+	totalSalaryChannel := make(chan float64, len(employee))
+
+	for _, employee := range employee {
+
+		go func(employee models.ChildInterface) {
+			totalSalaryChannel <- employee.GetTotalSalary()
+			}(employee)
+		totalSalary += <- totalSalaryChannel
+		}
+		
+	close(totalSalaryChannel)
+	
+	return totalSalary
 }
