@@ -28,7 +28,7 @@ func BenchmarkEmployeeTotalSalariesWithChannel(b *testing.B){
 }
 
 func BenchmarkEmployeeTotalSalaries(b *testing.B){
-	employees := GenerateEmployees(100)
+	employees := GenerateEmployeesWithChannel(100)
 
 	for i := 0; i < b.N; i++{
 		EmployeeTotalSalaries(employees)
