@@ -3,11 +3,14 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"runtime"
 	"time"
 	"weeklyTest2/models"
 )
 
 func main() {
+
+	runtime.GOMAXPROCS(4)
 	// employees := GenerateEmployees(100)
 	employees2 := GenerateEmployeesWithChannel(100)
 
@@ -47,7 +50,7 @@ func GenerateEmployeesWithChannel(empCount int)[]models.ChildInterface{
 	employees:= []models.ChildInterface{}
 	names := []string {"Agathi Aiko","Argyro Yianna","Antonia Koralia","Marilena Ran","Fumie Klio", "Marika Keti","Kei Kasih","Shigeko Rin","Nomiki Akira","Sotos Kazumi","Kouji Kōki"}
 	statuses := []models.Status{models.Permanents, models.Contracts, models.Trainees}
-	employeeChannel := make(chan models.ChildInterface, empCount)
+	employeeChannel := make(chan models.ChildInterface)
 	nameRandomizer := 0
 
 	for i:=0; i < empCount; i++ {

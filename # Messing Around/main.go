@@ -52,12 +52,15 @@ func main() {
     // Use the constructor to create a new instance of Employee
     // name := []string {"Halimawan", "Merkava", "Marika", "Radahn", "Daenarys", "Stark", "Uzumaki"}
     
-    a := 1
-    b := 0
+    //tukar agar nilai a dan b terbalik
 
-    if a < 3 {
-        b = 3
-    }
+    a := 5
+    b := 1
 
-    fmt.Println(b)
+    a -= b 
+    b += a 
+    a = b - a
+
+    fmt.Println("Nilai a =",a)
+    fmt.Println("Nilai b =",b)
 }
